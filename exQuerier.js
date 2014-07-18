@@ -18,7 +18,9 @@ connection.query('SHOW columns FROM test_table', function (err, rows, fields) {
   if(err) throw err;
 
   console.log('Columns from test_table:');
-  console.log(rows);
+  rows.forEach(function(row) {
+    console.log(row.Field);
+  });
 });
 
 connection.query('SELECT * FROM test_table', function (err, rows, fields) {
